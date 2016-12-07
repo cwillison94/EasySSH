@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,7 +21,7 @@ namespace EasySSH
     /// </summary>
     public partial class ConnectionPage : Page
     {
-        private bool profileChanged = false;
+        private Random randGen = new Random(Guid.NewGuid().GetHashCode());
 
         public ConnectionPage()
         {
@@ -77,7 +78,59 @@ namespace EasySSH
 
         private void ButtonConnect_Click(object sender, RoutedEventArgs e)
         {
+            var missing = new List<string>();
 
+            if (this.TBHost.Text == "") missing.Add("host");
+            if (this.TBUserName.Text == "") missing.Add("username");
+            if (this.TBPassword.Password == "") missing.Add("password"); ;
+
+            if (missing.Count != 0)
+            {
+                var missingBase = "Please fill in ";
+                var missingFields = "";
+                for (var i = 0; i < missing.Count(); i++)
+                {
+                    missingFields += missing[i] + (i != missing.Count() - 1 ? "," : "");
+                }
+
+                this.LabelErrorMessage.Text = missingBase + missingFields;
+            }
+            else
+            {
+
+                if (randGen.NextDouble() <= 0.50)
+                {
+                    this.LabelErrorMessage.Text = "";
+
+                    if (this.CBSaveProfile.IsChecked.Value) SaveProfile();
+                  
+                    MessageBox.Show("Successfull connection! This is placeholder text. A terminal window would now open to the SSH connection",
+                        "Dummy Success Message",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information);
+                }
+                else
+                {
+                    this.LabelErrorMessage.Text = "Connection Error";
+                    MessageBox.Show("Connection Error. A successfull connection could not be resolved. Please check inputs.",
+                       "Connection Error!",
+                       MessageBoxButton.OK,
+                       MessageBoxImage.Error);   
+                }
+            }
+        }
+
+        private void SaveProfile()
+        {
+ 
+            var host = this.TBHost.Text;
+            var port = int.Parse(this.TBPort.Text == "" ? "22" : this.TBPort.Text);
+            var username = this.TBUserName.Text;
+            var passowrd = this.TBPassword.Password;
+            var profileName = this.TBProfileName.Text;
+                    
+            if (profileName == "") profileName = username;
+            SavedProfiles.Instance.Add(profileName, username, host, passowrd, port);
         }
 
         private void ButtonClear_Click(object sender, RoutedEventArgs e)
@@ -125,6 +178,12 @@ namespace EasySSH
             this.TBUserName.Text = profile.UserName;
             this.TBPassword.Password = profile.Password;
             this.TBProfileName.Text = profile.ProfileName;
+        }
+
+        private void TBPort_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
 
     }

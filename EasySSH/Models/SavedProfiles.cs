@@ -15,6 +15,20 @@ namespace EasySSH
         public string Password { get; set; }
         public int Port { get; set; }
         public string QuickName { get { return this.ProfileName + " : " + this.UserName + "@" + this.Host; } }
+        public string PasswordMasked
+        {
+            get
+            {
+                StringBuilder builder = new StringBuilder();
+
+                for (int i = 0; i < this.Password.Length; i++)
+                {
+                    builder.Append("*");
+                }
+
+                return builder.ToString();
+            }
+        }
     }
 
     public class SavedProfiles

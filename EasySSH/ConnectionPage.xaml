@@ -32,7 +32,7 @@
         <Label Content="Host (or IP) :" HorizontalAlignment="Left" Margin="53,118,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.423"/>
         <TextBox x:Name="TBHost" Height="23" Margin="150,120,175,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="TBHost_TextChanged"/>
         <Label Content="Port :" HorizontalAlignment="Right" Margin="0,118,134,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.423"/>
-        <TextBox x:Name="TBPort" Height="23" Margin="0,120,15,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="114" TextChanged="TBPort_TextChanged"/>
+        <TextBox x:Name="TBPort" PreviewTextInput="TBPort_PreviewTextInput"  Height="23" Margin="0,120,15,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="114" TextChanged="TBPort_TextChanged"/>
         <Label Content="Username :" HorizontalAlignment="Left" Margin="60,156,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.423"/>
         <TextBox x:Name="TBUserName" Height="23" Margin="150,158,175,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="TBUserName_TextChanged"/>
         <Label Content="Password :" HorizontalAlignment="Left" Margin="63,196,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.423"/>
@@ -66,6 +66,7 @@
         <TextBox x:Name="TBCommandLineDisplay" Text="ssh &lt;username&gt; @&lt;host&gt; - p 22" IsReadOnly="True" HorizontalContentAlignment="Center" Margin="20,305,20,0" VerticalAlignment="Top" Foreground="#FF444444" BorderBrush="#00F1F1F1" Background="#01FFFFFF"/>
         <Button Click="ButtonClear_Click" Content="Clear" HorizontalAlignment="Left" Margin="50,340,0,0" VerticalAlignment="Top" Width="150" FontSize="16" FontFamily="Segoe UI Black" Background="#FFFD4747"/>
         <Button Click="ButtonConnect_Click" Content="Connect" HorizontalAlignment="Right" Margin="0,340,50,0" VerticalAlignment="Top" Width="150" FontSize="16" FontFamily="Segoe UI Black" Background="#FF62F000"/>
+        <TextBlock x:Name="LabelErrorMessage" TextWrapping="WrapWithOverflow" Margin="201,330,202,0" VerticalAlignment="Top" Foreground="Red" FontFamily="Segoe UI Black"/>
 
     </Grid>
 </Page>
