@@ -7,5 +7,60 @@
       d:DesignHeight="400" d:DesignWidth="600"
 	Title="ManageProfile">
 
-    <Grid Background="#FFF1F1F1"/>
+    <Grid Background="#FFF1F1F1">
+    <Label Content="EasySSH" Height="35" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="18" Width="86" HorizontalAlignment="Left"/>
+        <Menu HorizontalAlignment="Right" Height="32" VerticalAlignment="Top" Width="38" FontSize="16" Background="#00F0F0F0">
+            <MenuItem Height="30">
+                <MenuItem.Header>
+                    <StackPanel>
+                        <Image Width="20" Height="20" Source="/Resources/menu_icon.png" />
+                    </StackPanel>
+                </MenuItem.Header>
+                <MenuItem Name="connection" Header="Connection" Click="MenuItem_Click" />
+                <MenuItem Name="settings" Header="Settings" Click="MenuItem_Click" />
+                <MenuItem Name="about" Header="About" Click="MenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="225" Margin="10,77,0,0" VerticalAlignment="Top" Width="580">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Profile" Width="100" DisplayMemberBinding="{Binding profile}"/>
+                    <GridViewColumn Header="Username" Width="80" DisplayMemberBinding="{Binding username}"/>
+                    <GridViewColumn Header="Host" Width="150" DisplayMemberBinding="{Binding host}"/>
+                    <GridViewColumn Header="Password" Width="90" DisplayMemberBinding="{Binding password}"/>
+                    <GridViewColumn Header="Port" Width="50" DisplayMemberBinding="{Binding port}"/>
+                    <GridViewColumn Header="Edit" Width="50">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button HorizontalAlignment="Center" Width="20" Height ="20" Click="Edit_Click" BorderBrush="{x:Null}" >
+                                    <Button.OpacityMask>
+                                        <ImageBrush ImageSource="Resources/edit_pencil.png"/>
+                                    </Button.OpacityMask>
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="Resources/edit_pencil.png"/>
+                                    </Button.Background>
+                                </Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Delete" Width="50">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button HorizontalAlignment="Center" Width="20" Height ="20" Click="Delete_Click" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                                    <Button.OpacityMask>
+                                        <ImageBrush ImageSource="Resources/delete_bin.png"/>
+                                    </Button.OpacityMask>
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="Resources/delete_bin.png"/>
+                                    </Button.Background>
+                                </Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Manage Profile" Height="35" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Center" FontFamily="Segoe UI Black" Margin="0"/>
+        <Button x:Name="button" Content="Connections" HorizontalAlignment="Left" Height="33" Margin="24,323,0,0" VerticalAlignment="Top" Width="168" Click="button_Click"/>
+    </Grid>
 </Page>
