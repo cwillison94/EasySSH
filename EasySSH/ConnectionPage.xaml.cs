@@ -39,7 +39,7 @@ namespace EasySSH
                     //this.NavigationService.Navigate(new SettingsPage());
                     break;
                 case "manageProfile":
-                    //this.NavigationService.Navigate(new ManageProfilePage());
+                    this.NavigationService.Navigate(new ManageProfilePage());
 
                     break;
                 case "about":
