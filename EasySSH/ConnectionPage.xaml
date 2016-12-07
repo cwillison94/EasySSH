@@ -30,16 +30,16 @@
         <Label Content="Quick Connect :" HorizontalAlignment="Left" Margin="37,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.423"/>
         <Separator Height="18" Margin="15,81,15,0" VerticalAlignment="Top"/>
         <Label Content="Host (or IP) :" HorizontalAlignment="Left" Margin="53,118,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.423"/>
-        <TextBox Height="23" Margin="150,120,175,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="TBHost" Height="23" Margin="150,120,175,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Label Content="Port :" HorizontalAlignment="Right" Margin="0,118,134,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.423"/>
-        <TextBox Height="23" Margin="0,120,15,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="114"/>
+        <TextBox x:Name="TBPort" Height="23" Margin="0,120,15,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="114"/>
         <Label Content="Username :" HorizontalAlignment="Left" Margin="60,156,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.423"/>
-        <TextBox Height="23" Margin="150,158,175,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="TBUserName" Height="23" Margin="150,158,175,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Label Content="Password :" HorizontalAlignment="Left" Margin="63,196,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.423"/>
-        <TextBox Height="23" Margin="150,198,175,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <CheckBox Content="Save Profile" HorizontalAlignment="Left" Margin="36,242,0,0" VerticalAlignment="Top" Width="110" Height="15" IsChecked="True" ToolTip="Save the current profile on successfull connection"/>
+        <PasswordBox x:Name="TBPassword" Height="23" Margin="150,198,175,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CBSaveProfile" Checked="CBSaveProfile_Checked" Unchecked="CBSaveProfile_Unchecked" Content="Save Profile" HorizontalAlignment="Left" Margin="36,242,0,0" VerticalAlignment="Top" Width="110" Height="15" IsChecked="True" ToolTip="Save the current profile on successfull connection"/>
         <Label Content="Profile Name :" HorizontalAlignment="Left" Margin="148,235,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.423"/>
-        <TextBox Height="23" Margin="245,238,15,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="TBProfileName" Height="23" Margin="245,238,15,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Separator Height="18" Margin="15,319,15,0" VerticalAlignment="Top"/>
         <Separator  Height="5" Margin="10,320,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="10" HorizontalAlignment="Left">
             <Separator.RenderTransform>
@@ -63,9 +63,10 @@
             </Separator.RenderTransform>
         </Separator>
         <Label Content="Command Line : " HorizontalAlignment="Left" Margin="31,274,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.423"/>
-        <TextBox Text="ssh &lt;username&gt; @&lt;host&gt; - p 22" IsReadOnly="True" HorizontalContentAlignment="Center" Margin="20,305,20,0" VerticalAlignment="Top" Foreground="#FF444444" BorderBrush="#00F1F1F1" Background="#01FFFFFF"/>
-        <Button Content="Clear" HorizontalAlignment="Left" Margin="50,340,0,0" VerticalAlignment="Top" Width="150" FontSize="16" FontFamily="Segoe UI Black" Background="#FFFD4747"/>
-        <Button Content="Connect" HorizontalAlignment="Right" Margin="0,340,50,0" VerticalAlignment="Top" Width="150" FontSize="16" FontFamily="Segoe UI Black" Background="#FF62F000"/>
+        <TextBox x:Name="TBCommandLineDisplay" Text="" IsReadOnly="True" HorizontalContentAlignment="Center" Margin="20,305,20,0" VerticalAlignment="Top" Foreground="#FF444444" BorderBrush="#00F1F1F1" Background="#01FFFFFF"/>
+        <Button Click="ButtonClear_Click" Content="Clear" HorizontalAlignment="Left" Margin="50,340,0,0" VerticalAlignment="Top" Width="150" FontSize="16" FontFamily="Segoe UI Black" Background="#FFFD4747"/>
+        <Button Click="ButtonConnect_Click" Content="Connect" HorizontalAlignment="Right" Margin="0,340,50,0" VerticalAlignment="Top" Width="150" FontSize="16" FontFamily="Segoe UI Black" Background="#FF62F000"/>
+        <TextBlock x:Name="LabelErrorMessage" Margin="200,334,200,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Red" FontFamily="Segoe UI Black"/>
 
     </Grid>
 </Page>
