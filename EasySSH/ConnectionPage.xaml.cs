@@ -131,7 +131,10 @@ namespace EasySSH
             var profileName = this.TBProfileName.Text;
                     
             if (profileName == "") profileName = username;
-            SavedProfiles.Instance.Add(profileName, username, host, passowrd, port);
+            var profile = SavedProfiles.Instance.Add(profileName, username, host, passowrd, port);
+
+            this.ComboBoxQuickConnect.ItemsSource = SavedProfiles.Instance.ListAll();
+            this.ComboBoxQuickConnect.SelectedItem = profile;
         }
 
         private void ButtonClear_Click(object sender, RoutedEventArgs e)
