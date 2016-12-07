@@ -21,14 +21,14 @@
                 <MenuItem Name="about" Header="About" Click="MenuItem_Click"/>
             </MenuItem>
         </Menu>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="225" Margin="10,77,0,0" VerticalAlignment="Top" Width="580">
+        <ListView x:Name="listView" Height="225" Margin="0,77,0,0" VerticalAlignment="Top" Width="580">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Profile" Width="100" DisplayMemberBinding="{Binding profile}"/>
-                    <GridViewColumn Header="Username" Width="80" DisplayMemberBinding="{Binding username}"/>
-                    <GridViewColumn Header="Host" Width="150" DisplayMemberBinding="{Binding host}"/>
-                    <GridViewColumn Header="Password" Width="90" DisplayMemberBinding="{Binding password}"/>
-                    <GridViewColumn Header="Port" Width="50" DisplayMemberBinding="{Binding port}"/>
+                    <GridViewColumn Header="Profile" Width="100" DisplayMemberBinding="{Binding ProfileName}"/>
+                    <GridViewColumn Header="Username" Width="80" DisplayMemberBinding="{Binding UserName}"/>
+                    <GridViewColumn Header="Host" Width="150" DisplayMemberBinding="{Binding Host}"/>
+                    <GridViewColumn Header="Password" Width="90" DisplayMemberBinding="{Binding PasswordMasked}"/>
+                    <GridViewColumn Header="Port" Width="50" DisplayMemberBinding="{Binding Port}"/>
                     <GridViewColumn Header="Edit" Width="50">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
