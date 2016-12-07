@@ -42,7 +42,7 @@ namespace EasySSH
             // fill in with some dummy profiles
             this.profiles.Add(new SavedProfile()
             {
-                ProfileID = 0,
+                ProfileID = 1,
                 ProfileName = "Moore",
                 UserName = "cwillison",
                 Host = "moore.cas.mcmaster.ca",
@@ -53,7 +53,7 @@ namespace EasySSH
             // fill in with some dummy profiles
             this.profiles.Add(new SavedProfile()
             {
-                ProfileID = 0,
+                ProfileID = 2,
                 ProfileName = "Mills",
                 UserName = "cwillison",
                 Host = "mills.cas.mcmaster.ca",
@@ -64,7 +64,7 @@ namespace EasySSH
             // fill in with some dummy profiles
             this.profiles.Add(new SavedProfile()
             {
-                ProfileID = 0,
+                ProfileID = 3,
                 ProfileName = "Raspberry Pi",
                 UserName = "pi",
                 Host = "192.168.127.1",
@@ -75,7 +75,7 @@ namespace EasySSH
             // fill in with some dummy profiles
             this.profiles.Add(new SavedProfile()
             {
-                ProfileID = 0,
+                ProfileID = 4,
                 ProfileName = "Router",
                 UserName = "C3PO",
                 Host = "192.168.0.1",
@@ -123,6 +123,11 @@ namespace EasySSH
             this.profiles.Add(newProfile);
 
             return newProfile;
+        }
+
+        public void Remove(int profileID)
+        {
+            this.profiles.RemoveAll(x => x.ProfileID == profileID);
         }
 
     }

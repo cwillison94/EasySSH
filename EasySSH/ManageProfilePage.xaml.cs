@@ -60,7 +60,16 @@ namespace EasySSH
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            Button button = sender as Button;
+            SavedProfile selectedProfile = button.DataContext as SavedProfile;
 
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete profile: " + selectedProfile.QuickName + " on " + selectedProfile.Port + "?", "Delete this profile?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                SavedProfiles.Instance.Remove(selectedProfile.ProfileID);
+
+                this.listView.ItemsSource = SavedProfiles.Instance.ListAll();
+            }
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
