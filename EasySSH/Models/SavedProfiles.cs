@@ -6,19 +6,33 @@ using System.Threading.Tasks;
 
 namespace EasySSH
 {
+    public class SavedProfile
+    {
+        public int ProfileID { get; set; }
+        public string ProfileName { get; set; }
+        public string UserName { get; set; }
+        public string Host { get; set; }
+        public string Password { get; set; }
+        public int Port { get; set; }
+        public string QuickName { get { return this.ProfileName + " : " + this.UserName + "@" + this.Host; } }
+        public string PasswordMasked
+        {
+            get
+            {
+                StringBuilder builder = new StringBuilder();
+
+                for (int i = 0; i < this.Password.Length; i++)
+                {
+                    builder.Append("*");
+                }
+
+                return builder.ToString();
+            }
+        }
+    }
+
     public class SavedProfiles
     {
-        public class SavedProfile
-        {
-            public int ProfileID { get; set; }
-            public string Description { get; set; }
-            public string UserName { get; set; }
-            public string Host { get; set; }
-            public string Password { get; set; }
-            public int Port { get; set; }
-            public string QuickName { get { return this.Description + " : " + this.UserName + "@" + this.Host;  } }
-        }
-
         private List<SavedProfile> profiles = new List<SavedProfile>();
         private static SavedProfiles instance = null;
 
@@ -29,7 +43,7 @@ namespace EasySSH
             this.profiles.Add(new SavedProfile()
             {
                 ProfileID = 0,
-                Description = "Moore",
+                ProfileName = "Moore",
                 UserName = "cwillison",
                 Host = "moore.cas.mcmaster.ca",
                 Password = "psswd123",
@@ -40,7 +54,7 @@ namespace EasySSH
             this.profiles.Add(new SavedProfile()
             {
                 ProfileID = 0,
-                Description = "Mills",
+                ProfileName = "Mills",
                 UserName = "cwillison",
                 Host = "mills.cas.mcmaster.ca",
                 Password = "psswd123",
@@ -51,7 +65,7 @@ namespace EasySSH
             this.profiles.Add(new SavedProfile()
             {
                 ProfileID = 0,
-                Description = "Raspberry Pi",
+                ProfileName = "Raspberry Pi",
                 UserName = "pi",
                 Host = "192.168.127.1",
                 Password = "raspberry",
@@ -62,7 +76,7 @@ namespace EasySSH
             this.profiles.Add(new SavedProfile()
             {
                 ProfileID = 0,
-                Description = "Router",
+                ProfileName = "Router",
                 UserName = "C3PO",
                 Host = "192.168.0.1",
                 Password = "R2D2@starwars",
@@ -99,7 +113,7 @@ namespace EasySSH
             var newProfile = new SavedProfile() 
             { 
                 ProfileID = maxID, 
-                Description = description,
+                ProfileName = description,
                 UserName = userName,
                 Host = host,
                 Password = password,
