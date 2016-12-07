@@ -25,16 +25,16 @@
         </Menu>
         <Label Content="EasySSH" Height="35" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="18" Width="86" HorizontalAlignment="Left"/>
         <Label Content="Connection" Height="35" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Center" FontFamily="Segoe UI Black"/>
-        <ComboBox x:Name="ComboBoxQuickConnect"   Margin="150,50,175,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ComboBoxQuickConnect"   Margin="150,50,175,0" VerticalAlignment="Top" SelectionChanged="ComboBoxQuickConnect_SelectionChanged"/>
         <!-- IsEditable="True" IsReadOnly="True" Text="Select Profile to Quick Connect..." HorizontalContentAlignment="Center" -->
         <Label Content="Quick Connect :" HorizontalAlignment="Left" Margin="37,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.423"/>
         <Separator Height="18" Margin="15,81,15,0" VerticalAlignment="Top"/>
         <Label Content="Host (or IP) :" HorizontalAlignment="Left" Margin="53,118,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.423"/>
-        <TextBox x:Name="TBHost" Height="23" Margin="150,120,175,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="TBHost" TextChanged="TBHost_TextChanged" Height="23" Margin="150,120,175,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Label Content="Port :" HorizontalAlignment="Right" Margin="0,118,134,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.423"/>
-        <TextBox x:Name="TBPort" Height="23" Margin="0,120,15,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="114"/>
+        <TextBox x:Name="TBPort" TextChanged="TBPort_TextChanged" PreviewTextInput="TBPort_PreviewTextInput" Height="23" Margin="0,120,15,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="114"/>
         <Label Content="Username :" HorizontalAlignment="Left" Margin="60,156,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.423"/>
-        <TextBox x:Name="TBUserName" Height="23" Margin="150,158,175,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="TBUserName" TextChanged="TBUserName_TextChanged" Height="23" Margin="150,158,175,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Label Content="Password :" HorizontalAlignment="Left" Margin="63,196,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.423"/>
         <PasswordBox x:Name="TBPassword" Height="23" Margin="150,198,175,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="CBSaveProfile" Checked="CBSaveProfile_Checked" Unchecked="CBSaveProfile_Unchecked" Content="Save Profile" HorizontalAlignment="Left" Margin="36,242,0,0" VerticalAlignment="Top" Width="110" Height="15" IsChecked="True" ToolTip="Save the current profile on successfull connection"/>

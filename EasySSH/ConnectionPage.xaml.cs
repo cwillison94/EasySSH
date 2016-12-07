@@ -30,7 +30,7 @@ namespace EasySSH
             this.ComboBoxQuickConnect.SelectedValuePath = "ProfileID";
             this.ComboBoxQuickConnect.ItemsSource = SavedProfiles.Instance.ListAll();
 
-            this.TBCommandLineDisplay.Text = @"ssh <username> @<host>";
+            this.TBCommandLineDisplay.Text = @"ssh <username>@<host>";
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -189,6 +189,5 @@ namespace EasySSH
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
-
     }
 }
