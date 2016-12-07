@@ -59,6 +59,7 @@ namespace EasySSH
             this.TBUserName.Clear();
             this.TBPassword.Clear();
             this.TBProfileName.Clear();
+            this.ComboBoxQuickConnect.SelectedIndex = -1;
         }
 
         private void UpdateCommandDisplay()
@@ -173,11 +174,14 @@ namespace EasySSH
         {
             var profile = (SavedProfile)this.ComboBoxQuickConnect.SelectedItem;
 
-            this.TBHost.Text = profile.Host;
-            this.TBPort.Text = profile.Port.ToString();
-            this.TBUserName.Text = profile.UserName;
-            this.TBPassword.Password = profile.Password;
-            this.TBProfileName.Text = profile.ProfileName;
+            if (profile != null)
+            {
+                this.TBHost.Text = profile.Host;
+                this.TBPort.Text = profile.Port.ToString();
+                this.TBUserName.Text = profile.UserName;
+                this.TBPassword.Password = profile.Password;
+                this.TBProfileName.Text = profile.ProfileName;
+            }
         }
 
         private void TBPort_PreviewTextInput(object sender, TextCompositionEventArgs e)
