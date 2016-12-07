@@ -20,10 +20,33 @@ namespace EasySSH
     /// </summary>
     public partial class EditProfileWindow : Window
     {
-        public EditProfileWindow()
+        SavedProfile profile;
+        public EditProfileWindow(SavedProfile selected_profile)
         {
+            this.profile = selected_profile;
             InitializeComponent();
-            //NavigationFrame.Navigate(new EditProfilePage());
+            this.profile_textBox.Text = this.profile.ProfileName;
+            this.username_textBox.Text = this.profile.UserName;
+            this.host_textBox.Text = this.profile.Host;
+            this.password_textBox.Text = this.profile.Password;
+            this.port_textBox.Text = this.profile.Port.ToString();
+        }
+
+        private void discard_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void confirm_Click(object sender, RoutedEventArgs e)
+        {
+            this.profile.ProfileName = this.profile_textBox.Text;
+            this.profile.UserName = this.username_textBox.Text;
+            this.profile.Host = this.host_textBox.Text;
+            this.profile.Password = this.password_textBox.Text;
+            int x = this.profile.Port;
+            int.TryParse(this.port_textBox.Text, out x);
+            this.profile.Port = x;
+            this.Close();
         }
     }
 }

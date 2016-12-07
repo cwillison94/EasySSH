@@ -55,7 +55,9 @@ namespace EasySSH
             Button button = sender as Button;
             SavedProfile selectedProfile = button.DataContext as SavedProfile;
 
-            System.Diagnostics.Debug.WriteLine(selectedProfile.QuickName);
+            EditProfileWindow editPopup = new EditProfileWindow(selectedProfile);
+            editPopup.ShowDialog();
+            listView.Items.Refresh();
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
