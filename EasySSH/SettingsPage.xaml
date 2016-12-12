@@ -7,7 +7,46 @@
       d:DesignHeight="400" d:DesignWidth="600"
 	Title="Settings">
 
-    <Grid>
-        
+    <Grid Background="#FFF1F1F1">
+        <Menu HorizontalAlignment="Right" Height="32" VerticalAlignment="Top" Width="38" FontSize="16" Background="#00F0F0F0">
+            <MenuItem Height="30">
+                <MenuItem.Header>
+                    <StackPanel>
+                        <Image Width="20" Height="20" Source="/Resources/menu_icon.png" />
+                    </StackPanel>
+                </MenuItem.Header>
+                <MenuItem Name="connections" Header="Connections" Click="MenuItem_Click" />
+                <MenuItem Name="manageProfile" Header="Manage Profile" Click="MenuItem_Click" />
+                <MenuItem Name="about" Header="About" Click="MenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        <Label Content="EasySSH" Height="35" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="18" Width="86" HorizontalAlignment="Left"/>
+        <Label Content="Settings" Height="35" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Center" FontFamily="Segoe UI Black"/>
+
+        <Button x:Name="button" HorizontalAlignment="Left" Height="32" Margin="10,3,0,10" VerticalAlignment="Bottom"  FontFamily="Segoe UI Black" Width="165" Click="buttonConnections_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Resources/back_thin.png" Width="25" Margin="-63,0,-5,0"/>
+                <TextBlock Text="Connections"/>
+            </StackPanel>
+        </Button>
+        <Label Content="X11" HorizontalAlignment="Left" Margin="20,65,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Black"/>
+        <Image Source="/Resources/info_icon_small.png" Margin="0,65,15,0" RenderTransformOrigin="1.345,-0.328" ToolTip="This is a tooltip about explaining X11" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top"/>
+        <Separator Height="18" Margin="15,81,15,0" VerticalAlignment="Top"/>
+
+        <Label Content="Enable X11 Forwarding" HorizontalAlignment="Left" Margin="40,100,0,0" VerticalAlignment="Top"/>
+        <CheckBox HorizontalAlignment="Right" Margin="0,100,20,0" VerticalAlignment="Top"/>
+        <Label Content="Display Location" ToolTip="Location of display on remote machine" HorizontalAlignment="Left" Margin="40,127,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Right" Height="23" Margin="0,130,20,0" TextWrapping="Wrap" ToolTip="Location of display on remote machine" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Protocol Settings" HorizontalAlignment="Left" Margin="20,178,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Black"/>
+        <Image Source="Resources/info_icon_small.png" Margin="0,178,15,0" RenderTransformOrigin="1.345,-0.328" ToolTip="SSH protocol settings. Set the protocol version as well as other similar settings." HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top"/>
+        <Separator Height="18" Margin="15,194,15,0" VerticalAlignment="Top"/>
+        <Label Content="SSH Version" ToolTip="SSH protocol version. By default it is dynamic and will choose between SSH 1 and SSH 2." HorizontalAlignment="Left" Margin="40,213,0,0" VerticalAlignment="Top"/>
+        <ComboBox SelectedIndex="0" HorizontalAlignment="Right"  ToolTip="SSH protocol version. By default it is dynamic and will choose between SSH 1 and SSH 2." HorizontalContentAlignment="Center" Margin="0,213,20,0" VerticalAlignment="Top" Width="200">
+            <ComboBoxItem >SSH 1 and SSH2</ComboBoxItem>
+            <ComboBoxItem>SSH 1</ComboBoxItem>
+            <ComboBoxItem>SSH2</ComboBoxItem>
+        </ComboBox>
+        <Label Content="Enable Compression" ToolTip="Enable packet compression over SSH" HorizontalAlignment="Left" Margin="40,240,0,0" VerticalAlignment="Top"/>
+        <CheckBox HorizontalAlignment="Right" Margin="0,243,20,0" ToolTip="Enable packet compression over SSH" VerticalAlignment="Top" />
     </Grid>
 </Page>

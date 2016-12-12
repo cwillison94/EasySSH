@@ -64,8 +64,8 @@
         </Separator>
         <Label Content="Command Line : " HorizontalAlignment="Left" Margin="31,274,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.423"/>
         <TextBox x:Name="TBCommandLineDisplay" Text="" IsReadOnly="True" HorizontalContentAlignment="Center" Margin="20,305,20,0" VerticalAlignment="Top" Foreground="#FF444444" BorderBrush="#00F1F1F1" Background="#01FFFFFF"/>
-        <Button Click="ButtonClear_Click" Content="Clear" HorizontalAlignment="Left" Margin="50,340,0,0" VerticalAlignment="Top" Width="150" FontSize="16" FontFamily="Segoe UI Black" Background="#FFFD4747"/>
-        <Button Click="ButtonConnect_Click" Content="Connect" HorizontalAlignment="Right" Margin="0,340,50,0" VerticalAlignment="Top" Width="150" FontSize="16" FontFamily="Segoe UI Black" Background="#FF62F000"/>
+        <Button Click="ButtonClear_Click" Content="Clear" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="165" Height="32" FontFamily="Segoe UI Black" Background="#FFFD4747"/>
+        <Button Click="ButtonConnect_Click" Content="Connect" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="165" Height="32" FontFamily="Segoe UI Black" Background="#FF62F000"/>
         <TextBlock x:Name="LabelErrorMessage" Margin="200,334,200,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Red" FontFamily="Segoe UI Black"/>
 
     </Grid>

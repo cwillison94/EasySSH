@@ -21,7 +21,7 @@
                 <MenuItem Name="about" Header="About" Click="MenuItem_Click"/>
             </MenuItem>
         </Menu>
-        <ListView x:Name="listView" Height="225" Margin="0,77,0,0" VerticalAlignment="Top" Width="580">
+        <ListView x:Name="listView" Margin="10,45,10,50">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Profile" Width="100" DisplayMemberBinding="{Binding ProfileName}"/>
@@ -61,6 +61,11 @@
             </ListView.View>
         </ListView>
         <Label Content="Manage Profile" Height="35" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Center" FontFamily="Segoe UI Black" Margin="0"/>
-        <Button x:Name="button" Content="Connections" HorizontalAlignment="Left" Height="33" Margin="24,323,0,0" VerticalAlignment="Top" Width="168" Click="button_Click"/>
+        <Button x:Name="button" HorizontalAlignment="Left" Height="33" Margin="10,3,0,10" VerticalAlignment="Bottom" Width="168" Click="button_Click" FontFamily="Segoe UI Black">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Resources/back_thin.png" Width="25" Margin="-63,0,-5,0"/>
+                <TextBlock Text="Connections"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </Page>

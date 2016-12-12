@@ -31,21 +31,17 @@ namespace EasySSH
         {
             var menuItem = (MenuItem)sender;
 
-            System.Diagnostics.Debug.WriteLine("Menu Item Name: " + menuItem.Name.ToString());
             switch (menuItem.Name.ToString())
             {
                 case "connection":
                     this.NavigationService.Navigate(new ConnectionPage());
 
                     break;
-
                 case "settings":
-                    //this.NavigationService.Navigate(new SettingsPage());
+                    this.NavigationService.Navigate(new SettingsPage());
                     break;
-
                 case "about":
-                    //this.NavigationService.Navigate(new AboutPage());
-
+                    this.NavigationService.Navigate(new AboutPage());
                     break;
             }
         }

@@ -24,5 +24,29 @@ namespace EasySSH
         {
             InitializeComponent();
         }
+
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var menuItem = (MenuItem)sender;
+
+            switch (menuItem.Name.ToString())
+            {
+                case "connections":
+                    this.NavigationService.Navigate(new ConnectionPage());
+                    break;
+                case "manageProfile":
+                    this.NavigationService.Navigate(new ManageProfilePage());
+                    break;
+                case "about":
+                    this.NavigationService.Navigate(new AboutPage());
+                    break;
+            }
+        }
+
+        private void buttonConnections_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new ConnectionPage());
+        }
     }
 }

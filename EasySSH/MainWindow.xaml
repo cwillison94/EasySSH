@@ -1,7 +1,7 @@
 ﻿<Window x:Class="EasySSH.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="EasySSH" Height="410" MinHeight="410" Width="600" MinWidth="600">
+        Title="EasySSH" Height="420" MinHeight="420" Width="610" MinWidth="610">
     <DockPanel>
         <Frame x:Name="NavigationFrame" NavigationUIVisibility="Hidden"/>
     </DockPanel>
