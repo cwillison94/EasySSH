@@ -4,10 +4,33 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
-	Title="AboutPage">
+      d:DesignHeight="400" d:DesignWidth="600"
+	Title="AboutPage" Background="#FFF1F1F1">
 
     <Grid>
-        
+        <Label Content="EasySSH" Height="35" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="18" Width="86" HorizontalAlignment="Left"/>
+        <Menu HorizontalAlignment="Right" Height="32" VerticalAlignment="Top" Width="38" FontSize="16" Background="#00F0F0F0">
+            <MenuItem Height="30">
+                <MenuItem.Header>
+                    <StackPanel>
+                        <Image Width="20" Height="20" Source="/Resources/menu_icon.png" />
+                    </StackPanel>
+                </MenuItem.Header>
+                <MenuItem Name="connection" Header="Connection" Click="MenuItem_Click" />
+                <MenuItem Name="settings" Header="Settings" Click="MenuItem_Click" />
+                <MenuItem Name="about" Header="About" Click="MenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        <Label Content="About" Height="35" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Center" FontFamily="Segoe UI Black" Margin="0"/>
+
+
+        <Button x:Name="button" HorizontalAlignment="Left" Height="33" Margin="10,3,0,10" VerticalAlignment="Bottom" Width="168" Click="buttonConnections_Click" FontFamily="Segoe UI Black">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Resources/back_thin.png" Width="25" Margin="-63,0,-5,0"/>
+                <TextBlock Text="Connections"/>
+            </StackPanel>
+        </Button>
+        <TextBlock Margin="30,60,30,0" TextWrapping="Wrap" Text="EasySSH is awesome..." VerticalAlignment="Top"/>
+
     </Grid>
 </Page>
