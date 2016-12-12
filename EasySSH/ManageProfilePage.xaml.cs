@@ -51,7 +51,10 @@ namespace EasySSH
             Button button = sender as Button;
             SavedProfile selectedProfile = button.DataContext as SavedProfile;
 
+            Point p = button.PointToScreen(new Point());
             EditProfileWindow editPopup = new EditProfileWindow(selectedProfile);
+            editPopup.Left = p.X;
+            editPopup.Top = p.Y + 25;
             editPopup.ShowDialog();
             listView.Items.Refresh();
         }
